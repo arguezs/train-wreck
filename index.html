@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Train Wreck!</title>
+
+    <!-- Font Styles -->
+    <link rel="stylesheet" href="style/font/fontface.css">
+
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="style/jquery-ui/jquery-ui.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style/stylesheet.css">
+
+    <!-- jQuery -->
+    <script src="js/jQuery-3.4.1.min.js" defer></script>
+
+    <script src="js/textyle.min.js" defer></script>
+
+    <!-- jQuery UI -->
+    <script src="js/jquery-ui.min.js" defer></script>
+
+    <!-- FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/12f3abc7c3.js" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <!-- Sección principal -->
+    <section id="main-sect" class="main-sect">
+
+        <!-- Pantalla de inicio -->
+        <div id="start-screen" class="start screen">
+            <h1 class="logo">Train Wreck!</h1>
+
+            <!-- Acordeón -->
+            <div id="game-info" class="d50">
+                <h3>Controles</h3>
+
+                <!-- Controles -->
+                <div class="arrow container">
+                    <h4>Movimiento</h4>
+                    <div class="arrow">
+                        <div class="arrow box border">
+                            <button class="arrow key">W</button>
+                            <div class="arrow">
+                                <button class="arrow key">A</button>
+                                <button class="arrow key">S</button>
+                                <button class="arrow key">D</button>
+                            </div>
+                        </div>
+                        <div class="arrow box">
+                            <button class="arrow key">&uparrow;</button>
+                            <div class="arrow">
+                                <button class="arrow key">&leftarrow;</button>
+                                <button class="arrow key">&downarrow;</button>
+                                <button class="arrow key">&rightarrow;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Pausa</h4>
+                    <div class="arrow box">
+                        <button class="arrow key">Esc</button>
+                    </div>
+                </div>
+
+                <h3>Cómo jugar</h3>
+
+                <!-- Explicación del juego -->
+                <div class="how-to">
+                    <p>Conviértete en el mejor maquinista con <b>Train Wreck!</b></p>
+                    <p class="f-line"><i class="fas fa-male"></i> - Recoge pasajeros y gana puntos.</p>
+                    <p>Pero, ¡cuidado!</p>
+                    <p>Cuantos más pasajeros recojas, más largo será el tren, y más difícil será maniobrar.</p>
+                    <p class="f-line"><i class="fas fa-school"></i> - Pasa por estaciones y aumenta tu puntuación</p>
+                    <p>Pasar por una estación te da 10 puntos sin aumentar el tamaño del tren.</p>
+                    <p>Sin embargo, la velocidad del tren aumentará, así que ándate con ojo.</p>
+                    <p class="f-line">¡No te choques con nada!</p>
+                </div>
+            </div>
+
+            <button id="start-btn" class="start btn">START</button>
+        </div>
+
+        <!-- Pantalla de fin de partida -->
+        <div id="wreck-screen" class="wreck screen">
+            <h1 id="tw-logo" class="logo tile">Train Wreck!</h1>
+            <h3 id="high-score" class="high-score tile">¡Nuevo record!</h3>
+            <div class="final-score">Puntuación: <span id="final-score"></span></div>
+            <button id="restart-btn" class="restart btn">Reiniciar</button>
+            <button id="home-btn" class="restart btn">Inicio</button>
+        </div>
+
+        <!-- Pantalla de pausa -->
+        <div id="pause-screen" class="wreck screen">
+            <h2>Juego en pausa</h2>
+        </div>
+
+        <!-- Pantalla de juego -->
+        <div id="game-screen" class="game screen">
+
+            <!-- Tablero de juego -->
+            <div class="board">
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell train head down"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i class="fas fa-male"></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+                <div class="cell"><i></i></div>
+            </div>
+
+            <!-- Panel de puntuación -->
+            <div class="score display">
+                <p class="score text">Puntuación</p>
+                <div id="cur-score" class="score number">0</div>
+                <div class="score specific">
+                    <p class="score icon"><i class="fas fa-school"></i></p>
+                    <p id="station-score" class="score icon">0</p>
+                    <p class="score icon"><i class="fas fa-male"></i></p>
+                    <p id="passenger-score" class="score icon">0</p>
+                </div>
+                <p class="score text">Mejor puntuación</p>
+                <div id="bst-score" class="score number">0</div>
+                <p class="score text">Tiempo</p>
+                <div id="timer" class="score number">00:00</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archivos de audio -->
+    <audio src="audio/train-sound.mp3" id="train-sound" loop></audio>
+    <audio src="audio/train-horn.mp3" id="train-horn"></audio>
+    <audio src="audio/power-failure.mp3" id="power-failure"></audio>
+    <audio src="audio/sad-trombone.mp3" id="sad-trombone"></audio>
+
+</body>
+</html>

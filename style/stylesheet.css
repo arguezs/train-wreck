@@ -1,0 +1,201 @@
+*{margin:0;padding:0}
+
+.d50{width: 50vw;}
+
+/* Pantallas */
+.screen{
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.start.screen{
+    background-color: lightgrey;
+    justify-content: flex-start;
+    z-index: 15;
+}
+.wreck.screen{
+    background-color: rgba(0,0,0,0.25);
+    justify-content: center;
+    color: white;
+    z-index: 10;
+}
+.game.screen{
+    justify-content: center;
+    z-index: 5;
+}
+
+
+/* Textos */
+.logo{
+    text-align: center;
+    font-size: 4rem;
+    margin: 2rem;
+    font-family: 'metalcrime', sans-serif;
+}
+.high-score{
+    font-size: 2rem;
+    font-family: metalcrime, sans-serif;
+    margin: 1rem;
+    letter-spacing: .25rem;
+}
+.final-score{
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.tile{opacity: 0}
+.tile span{
+    position: relative;
+    top: 10px;
+    left: 10px;
+    opacity: 0;
+}
+
+/* Controles */
+.arrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arrow h4{margin-top: 1rem}
+.arrow.container{
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+.arrow.box{
+    flex-direction: column;
+    padding: 2rem;
+}
+.arrow.box.border{border-right: 1px solid gray}
+.arrow.key{
+    background-color: lightgrey;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.25rem;
+    margin: 0.2rem;
+}
+
+/* Manual de juego */
+.how-to{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.f-line{margin-top: 1rem}
+
+/* Botones */
+.btn:hover{cursor: pointer}
+.start.btn{
+    background-color: darkgray;
+    color: white;
+    padding: 1rem;
+    font-size: 3rem;
+    margin-top: 5rem;
+    border-radius: 1rem;
+
+}
+.restart.btn{
+    background-color: white;
+    color: gray;
+    padding: 0.5rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+}
+
+/* Tablero de juego */
+.board{
+    width: 80vh;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    border: 0.5rem solid lightgrey;
+}
+
+/* Celdas */
+.cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+    position:relative;
+    overflow: visible;
+    max-width: 5vh;
+    max-height: 5vh;
+}
+.cell.green{background-color: darkseagreen}
+.cell.light-green{background-color: seagreen}
+.cell i{z-index: 2000}
+
+/* Tren */
+.train:before{
+    content: ' ';
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2vh;
+    height: 5vh;
+    background: coral;
+    border-width: 0.5vh 0.75vh;
+    border-style: solid;
+    border-color: gray white;
+}
+.train.head:before{
+    height: 80%;
+    border-bottom: 0;
+}
+.train.head:after{
+    content: ' ';
+    background: black;
+    width: 2vh;
+    height: 1vh;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 100% 100%;
+}
+
+.train.left{transform: rotate(90deg)}
+.train.up{transform: rotate(180deg)}
+.train.right{transform: rotate(270deg)}
+
+/* Panel de puntuación */
+.score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.score.display{
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    background-color: lightgrey;
+    border: 0.5rem solid darkgray;
+    padding: 0.5rem;
+    width: 7.5vw;
+    border-radius: 1rem;
+    font-size: larger;
+}
+.score.text{
+    margin-top: 1rem;
+    text-align: center;
+}
+.score.number{
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 2rem;
+    border-radius: 0.5rem;
+}
+.score.icon{margin: 0.5rem 0.5rem 0 0.5rem}
